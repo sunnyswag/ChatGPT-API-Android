@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">chatgptapi</string>
+    <string name="nav_chat_history">Chat History</string>
+    <string name="nav_start_chat">Chat</string>
 </resources>
