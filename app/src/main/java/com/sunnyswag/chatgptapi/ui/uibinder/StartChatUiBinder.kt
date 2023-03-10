@@ -1,4 +1,4 @@
-package com.sunnyswag.chatgptapi.uibinder
+package com.sunnyswag.chatgptapi.ui.uibinder
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.ItemViewBinder
 import com.sunnyswag.chatgptapi.R
 import com.sunnyswag.chatgptapi.databinding.UiBinderStartChatBinding
-import com.sunnyswag.chatgptapi.uimodel.StartChatUiModel
+import com.sunnyswag.chatgptapi.ui.uimodel.StartChatUiModel
 
 class StartChatUiBinder: ItemViewBinder<StartChatUiModel, StartChatUiBinder.ViewHolder>() {
 

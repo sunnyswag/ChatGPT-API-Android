@@ -5,10 +5,10 @@ import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.drakeet.multitype.MultiTypeAdapter
 import com.sunnyswag.chatgptapi.databinding.ActivityMainBinding
-import com.sunnyswag.chatgptapi.uibinder.ChatHistoryUiBinder
-import com.sunnyswag.chatgptapi.uibinder.StartChatUiBinder
-import com.sunnyswag.chatgptapi.uimodel.ChatHistoryUiModel
-import com.sunnyswag.chatgptapi.uimodel.StartChatUiModel
+import com.sunnyswag.chatgptapi.ui.uibinder.ChatHistoryUiBinder
+import com.sunnyswag.chatgptapi.ui.uibinder.StartChatUiBinder
+import com.sunnyswag.chatgptapi.ui.uimodel.ChatHistoryUiModel
+import com.sunnyswag.chatgptapi.ui.uimodel.StartChatUiModel
 
 class MainActivity : AppCompatActivity() {
 
