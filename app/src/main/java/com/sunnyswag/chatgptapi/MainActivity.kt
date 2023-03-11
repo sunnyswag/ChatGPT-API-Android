@@ -2,6 +2,7 @@ package com.sunnyswag.chatgptapi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.drakeet.multitype.MultiTypeAdapter
 import com.sunnyswag.chatgptapi.databinding.ActivityMainBinding
@@ -9,8 +10,13 @@ import com.sunnyswag.chatgptapi.ui.uibinder.ChatHistoryUiBinder
 import com.sunnyswag.chatgptapi.ui.uibinder.StartChatUiBinder
 import com.sunnyswag.chatgptapi.ui.uimodel.ChatHistoryUiModel
 import com.sunnyswag.chatgptapi.ui.uimodel.StartChatUiModel
+import com.sunnyswag.chatgptapi.viewmodel.ChatViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    val chatViewModel by viewModels<ChatViewModel>()
 
     private val adapter = MultiTypeAdapter().apply {
         register(StartChatUiModel::class, StartChatUiBinder())
@@ -33,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_start_chat -> {
                     binding.vpMain.currentItem = START_CHAT_PAGE
+                    chatViewModel.testTextCompletion()
                     true
                 }
                 R.id.nav_chat_history -> {
