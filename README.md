@@ -14,7 +14,7 @@ build an Android Application with ChatGPT API
 
 ### APP ARCHITECTURE
 
-<img src="https://tern-1257001564.cos.ap-guangzhou.myqcloud.com/markdown_pic/app_architecture_draft.png" alt="app_architecture_draft" style="zoom:60%;" />
+<img src="https://tern-1257001564.cos.ap-guangzhou.myqcloud.com/markdown_pic/app_architecture_draft1.png" alt="app_architecture_draft1" style="zoom:50%;" />
 
 
 
