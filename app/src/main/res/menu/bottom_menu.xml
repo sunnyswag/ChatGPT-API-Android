@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_start_chat"
-        android:icon="@drawable/ic_start_chat"
-        android:title="@string/nav_start_chat" />
+        android:id="@+id/nav_chat_list"
+        android:icon="@drawable/ic_chat_list"
+        android:title="@string/nav_chat_list" />
     <item
-        android:id="@+id/nav_chat_history"
-        android:icon="@drawable/ic_chat_history"
-        android:title="@string/nav_chat_history" />
+        android:id="@+id/nav_prompt_chat"
+        android:icon="@drawable/ic_prompt_chat"
+        android:title="@string/nav_prompt_chat" />
 </menu>

@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
-import com.drakeet.multitype.MultiTypeAdapter
 import com.sunnyswag.chatgptapi.databinding.ActivityMainBinding
-import com.sunnyswag.chatgptapi.ui.uibinder.ChatHistoryUiBinder
-import com.sunnyswag.chatgptapi.ui.uibinder.StartChatUiBinder
-import com.sunnyswag.chatgptapi.ui.uimodel.ChatHistoryUiModel
-import com.sunnyswag.chatgptapi.ui.uimodel.StartChatUiModel
+import com.sunnyswag.chatgptapi.ui.adapter.BottomNavigationPagerAdapter
+import com.sunnyswag.chatgptapi.ui.adapter.BottomNavigationPagerAdapter.Companion.CHAT_LIST_PAGE
+import com.sunnyswag.chatgptapi.ui.adapter.BottomNavigationPagerAdapter.Companion.PROMPT_CHAT_PAGE
 import com.sunnyswag.chatgptapi.viewmodel.ChatViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,10 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     val chatViewModel by viewModels<ChatViewModel>()
 
-    private val adapter = MultiTypeAdapter().apply {
-        register(StartChatUiModel::class, StartChatUiBinder())
-        register(ChatHistoryUiModel::class, ChatHistoryUiBinder())
-    }
+    private val adapter = BottomNavigationPagerAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,20 +25,19 @@ class MainActivity : AppCompatActivity() {
             setContentView(it.root)
         }
 
-        initAdapter(binding)
+        binding.vpMain.adapter = adapter
         initPageSelectedListener(binding)
     }
 
     private fun initPageSelectedListener(binding: ActivityMainBinding) {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.nav_start_chat -> {
-                    binding.vpMain.currentItem = START_CHAT_PAGE
-                    chatViewModel.testTextCompletion()
+                R.id.nav_chat_list -> {
+                    binding.vpMain.currentItem = CHAT_LIST_PAGE
                     true
                 }
-                R.id.nav_chat_history -> {
-                    binding.vpMain.currentItem = CHAT_HISTORY_PAGE
+                R.id.nav_prompt_chat -> {
+                    binding.vpMain.currentItem = PROMPT_CHAT_PAGE
                     true
                 }
                 else -> false
@@ -54,25 +48,12 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 when (position) {
-                    START_CHAT_PAGE -> binding.bottomNavigationView.selectedItemId =
-                        R.id.nav_start_chat
-                    CHAT_HISTORY_PAGE -> binding.bottomNavigationView.selectedItemId =
-                        R.id.nav_chat_history
+                    CHAT_LIST_PAGE -> binding.bottomNavigationView.selectedItemId =
+                        R.id.nav_chat_list
+                    PROMPT_CHAT_PAGE -> binding.bottomNavigationView.selectedItemId =
+                        R.id.nav_prompt_chat
                 }
             }
         })
-    }
-
-    private fun initAdapter(binding: ActivityMainBinding) {
-        binding.vpMain.adapter = adapter
-        adapter.items = listOf(
-            StartChatUiModel(),
-            ChatHistoryUiModel()
-        )
-    }
-
-    companion object {
-        private const val START_CHAT_PAGE = 0
-        private const val CHAT_HISTORY_PAGE = 1
     }
 }
