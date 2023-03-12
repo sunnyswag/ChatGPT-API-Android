@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainNavFragment">
+
+    <fragment
+        android:id="@+id/mainNavFragment"
+        android:name="com.sunnyswag.chatgptapi.ui.fragment.MainNavFragment"
+        android:label="MainNavFragment"
+        tools:layout="@layout/fragment_main_nav">
+        <action
+            android:id="@+id/action_mainNavFragment_to_chatDetailFragment"
+            app:destination="@id/chatDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatDetailFragment"
+        android:name="com.sunnyswag.chatgptapi.ui.fragment.ChatDetailFragment"
+        android:label="ChatDetailFragment"
+        tools:layout="@layout/fragment_chat_detail" />
+
+</navigation>

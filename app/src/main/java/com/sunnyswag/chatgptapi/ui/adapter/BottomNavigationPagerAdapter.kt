@@ -1,12 +1,11 @@
 package com.sunnyswag.chatgptapi.ui.adapter
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.sunnyswag.chatgptapi.ui.fragment.ChatListFragment
 import com.sunnyswag.chatgptapi.ui.fragment.PromptChatFragment
 
-class BottomNavigationPagerAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter(fragmentActivity) {
+class BottomNavigationPagerAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int {
         return BOTTOM_NAVIGATION_PAGE_COUNT
